@@ -1,0 +1,47 @@
+# https://golangci-lint.run/usage/configuration/
+run:
+  timeout: 5m
+  tests: true
+  concurrency: 4
+
+output:
+  print-issued-lines: true
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - errcheck
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  gocyclo:
+    min-complexity: 10
+  staticcheck:
+    checks:
+      - 'SA*'
+      - 'S1000'
+      - 'S1001'
+
+linters:
+  disable-all: false
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gosimple
+    - typecheck
+    - ineffassign
+    - gocyclo
+    - gofmt
+    - goimports
+    - dogsled
+    - dupl
+    - unparam
+    - gocritic
+  disable:
+    - lll # линия длинее 120 символов (по умолчанию)
+  fast: false
+

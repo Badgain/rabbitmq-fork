@@ -1,0 +1,50 @@
+server:
+  host: localhost
+  port: 8080
+  user: admin
+  password: admin
+mapping:
+  - queue:
+      queue: some-queue
+      auto_ack: false
+      listener: some-consumer
+      exclusive: false
+      no_local: false
+      no_wait: false
+      delete_when_unused: false
+      durable: false
+    exchange:
+      name: some-exchange
+      kind: direct
+      durable: false
+      auto_delete: false
+      internal: false
+      no_wait: false
+    message_type:
+      exchange: some-exchange
+      routing_key: some-routing-key
+      mandatory: false
+      immediate: false
+      content_type: application/json
+  - queue:
+      queue: some-queue
+      auto_ack: false
+      listener: some-consumer
+      exclusive: false
+      no_local: false
+      no_wait: false
+      delete_when_unused: false
+      durable: false
+    exchange:
+      name: some-exchange
+      kind: direct
+      durable: false
+      auto_delete: false
+      internal: false
+      no_wait: false
+    message_type:
+      exchange: some-exchange
+      routing_key: some-routing-key
+      mandatory: false
+      immediate: false
+      content_type: application/json
